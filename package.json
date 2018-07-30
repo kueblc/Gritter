@@ -1,5 +1,5 @@
 {
-  "name": "@foxythemes/gritter",
+  "name": "Gritter",
   "version": "1.7.4",
   "description": "A small growl-like notification plugin for jQuery",
   "homepage": "http://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/",
