@@ -81,7 +81,7 @@
 		_tpl_close: '<a class="gritter-close" href="#" tabindex="1">Close Notification</a>',
 		_tpl_title: '<span class="gritter-title">[[title]]</span>',
 		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper [[item_class]]" style="display:none" role="alert"><div class="gritter-item">[[image]]<div class="gritter-content [[class_name]]">[[close]][[title]]<p>[[text]]</p></div></div></div>',
-		_tpl_wrap: '<div id="gritter-notice-wrapper" class="gritter-main-wrapper"></div>',
+		_tpl_wrap: '<div id="gritter-container" class="gritter-main-wrapper"></div>',
 		
 		/**
 		* Add a gritter notification to the screen
@@ -162,7 +162,7 @@
 				return false;
 			}
 
-			$('#gritter-notice-wrapper').addClass(position).append(tmp);
+			$('#gritter-container').addClass(position).append(tmp);
 			
 			var item = $('#gritter-item-' + this._item_count);
 			
@@ -214,7 +214,7 @@
 			
 			// Check if the wrapper is empty, if it is.. remove the wrapper
 			if($('.gritter-item-wrapper').length == 0){
-				$('#gritter-notice-wrapper').remove();
+				$('#gritter-container').remove();
 			}
 		
 		},
@@ -354,7 +354,7 @@
 			var before_close = ($.isFunction(params.before_close)) ? params.before_close : function(){};
 			var after_close = ($.isFunction(params.after_close)) ? params.after_close : function(){};
 			
-			var wrap = $('#gritter-notice-wrapper');
+			var wrap = $('#gritter-container');
 			before_close(wrap);
 			wrap.fadeOut(function(){
 				$(this).remove();
@@ -412,7 +412,7 @@
 		*/  
 		_verifyWrapper: function(){
 		  
-			if($('#gritter-notice-wrapper').length == 0){
+			if($('#gritter-container').length == 0){
 				$('body').append(this._tpl_wrap);
 			}
 		
